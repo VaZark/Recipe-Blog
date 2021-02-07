@@ -1,5 +1,8 @@
 # TODO
 
+- Models
+  - Optional : Utensils used
+  - Advanced : Liked Recipes, Followed Users
 - User Login and profile permissions
   - User can modify only their own recipes
 - Images in AWS S3 instance

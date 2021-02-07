@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'rest_framework', # REST API with Django
+    # Apps
     'cooking_recipes'
 ]
 
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'my_recipes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,4 +121,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles')) # Folder where all statics are aggregated into
+STATIC_URL = '/static/' # defines new top level static path that points to STATIC_ROOT
+STATICFILES_DIRS = ( # defines paths from where static files are to be collected from
+    os.path.join(BASE_DIR, 'recipe-frontend', "build", "static"),  # static files for frontend
+)
+
+# Local env dev settings
+if DEBUG :
+    from .local_settings import *
+    INSTALLED_APPS = INSTALLED_APPS + CORS_APP
+    MIDDLEWARE = CORS_MIDDLEWARE + MIDDLEWARE
