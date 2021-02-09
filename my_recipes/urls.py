@@ -4,6 +4,6 @@ from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recipes/', include('cooking_recipes.urls')),
+    path('', include('cooking_recipes.urls')),
     path('', index, name="index") # Serve React build
 ]

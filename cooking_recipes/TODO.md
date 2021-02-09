@@ -1,20 +1,12 @@
 # TODO
 
 - Models
-  - Optional : Utensils used
+  - UserProfile(create for every user created and link for deletion as well)
+  - Optional : Utensils_req
   - Advanced : Liked Recipes, Followed Users
 - User Login and profile permissions
   - User can modify only their own recipes
 - Images in AWS S3 instance
-- Additional end points and serializers to fetch based on 
-    - getByRecipes
-        - id
-        - Author
-        - Cuisine
-        - CookingType
-    - getCuisines
-    - getCookType
-    - getAuthors
 - Try to customize Admin View
 
 ## React UI

@@ -3,7 +3,7 @@
 - Django backend with Sqlite backend
   - [X] Basic Models
   - [ ] All Serializers listed in TODO
-  - [ ] User Authentication : Django-guardian(?)
+  - [ ] User Authentication : Basic First ; then Django-guardian
   - [ ] Use free S3 AWS bucket for storing images
   - [ ] Advanced models : Likes, Follows
 
